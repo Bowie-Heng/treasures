@@ -1,4 +1,4 @@
-package com.bowie.notes.basis;
+package com.bowie.notes;
 
 /**
  * Created by Bowie on 2019/3/27 16:25
@@ -47,7 +47,7 @@ public class InnerClassWithStaticField {
         System.out.println(inner.v);
 
         //获取内部类静态变量的方式
-        System.out.println(InnerClassWithStaticField.Inner.s);
+        System.out.println(Inner.s);
 
     }
 

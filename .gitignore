@@ -1,3 +1,5 @@
 
 .idea/
 /target/
+/notes-basis/basis.iml
+/notes-framework/framework.iml
