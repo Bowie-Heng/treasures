@@ -9,7 +9,7 @@ import java.util.Iterator;
  * 迭代器中需要删除一个集合中的某个元素引发的bug
  *
  **/
-public class ListRemoveBug {
+public class ListRemove {
 
     public static void main(String[] args) {
 
