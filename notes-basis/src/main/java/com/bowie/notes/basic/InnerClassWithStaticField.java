@@ -1,4 +1,4 @@
-package com.bowie.notes;
+package com.bowie.notes.basic;
 
 /**
  * Created by Bowie on 2019/3/27 16:25

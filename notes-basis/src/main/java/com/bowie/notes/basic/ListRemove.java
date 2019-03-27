@@ -1,4 +1,4 @@
-package com.bowie.notes;
+package com.bowie.notes.basic;
 
 import java.util.ArrayList;
 import java.util.Iterator;
