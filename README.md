@@ -1,5 +1,5 @@
 # treasures
-> 把个人笔记中的内容迁移到GitHub中，持续ing...
+> 积跬步，以至千里。
 ## notes-basis
 > 这个module中的代码，对应到个人笔记中的 java基础 | JDK源码阅读 | JVM虚拟机 三个模块的内容。
 ## notes-framework
