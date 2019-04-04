@@ -10,7 +10,10 @@
   * thread包中的内容，包含JDK的thread包中各种并发工具类，线程池，Threadlocal等的使用。
   
 ## notes-framework
-> 这个module中的代码，对应到个人笔记中 常用框架 模块儿的内容，会包含一些框架使用的Demo及其最佳实践等等（这个moudle后续可能会再度拆分）。
-> 框架源码的阅读和原理的剖析，陆续也会想办法迁移到GitHub中
+> 这个module中的代码，对应到个人笔记中 常用框架 模块儿的内容，会包含一些框架使用的Demo及其最佳实践等等（这个moudle后续可能会再度拆分）。  
+> 框架源码的阅读和原理的剖析，陆续也会想办法迁移到GitHub中。  
+> 这块准备做成一个大的融合部分，类似于SpringBoot集成各种常用框架和常用中间件的Demo。  
 
-
+## notes-middleware
+> 这个module中的代码，对应到个人笔记中 中间件 模块儿的内容，包含使用java代码与RabbitMq,Zookeeper,Redis等中间件进行交互的Demo。  
+> 这些中间件的使用场景和原理的剖析，后续也会想办法整理到GitHub中。  
