@@ -15,5 +15,4 @@
 > 这块准备做成一个大的融合部分，类似于SpringBoot集成各种常用框架和常用中间件的Demo。  
 
 ## notes-middleware
-> 这个module中的代码，对应到个人笔记中 中间件 模块儿的内容，包含使用java代码与RabbitMq,Zookeeper,Redis等中间件进行交互的Demo。  
-> 这些中间件的使用场景和原理的剖析，后续也会想办法整理到GitHub中。  
+ * zookeeper包中包含使用Zookeeper原生api交互和使用apache的curator的交互，包含节点监控和分布式锁的实现。
