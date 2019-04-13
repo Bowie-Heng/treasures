@@ -9,10 +9,12 @@
   * serializable包的内容是java序列化功能的实际运用。
   * thread包中的内容，包含JDK的thread包中各种并发工具类，线程池，Threadlocal等的使用。
   
+## notes-middleware
+ * zookeeper包中包含使用Zookeeper原生api和使用apache的curator的代码，包含了节点监控和分布式锁的实现。
+ * redis包中包含了使用redis中各种数据结构的示例。Comments类里面把这些内容进行了汇总，包含了没有写出示范代码的一些方法。RedissonTest是使用Redisson框架完成分布式锁等功能。
+  
 ## notes-framework
 > 这个module中的代码，对应到个人笔记中 常用框架 模块儿的内容，会包含一些框架使用的Demo及其最佳实践等等（这个moudle后续可能会再度拆分）。  
 > 框架源码的阅读和原理的剖析，陆续也会想办法迁移到GitHub中。  
 > 这块准备做成一个大的融合部分，类似于SpringBoot集成各种常用框架和常用中间件的Demo。  
 
-## notes-middleware
- * zookeeper包中包含使用Zookeeper原生api交互和使用apache的curator的交互，包含节点监控和分布式锁的实现。
