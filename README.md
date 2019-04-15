@@ -12,7 +12,7 @@
 ## notes-middleware
  * zookeeper包中包含使用Zookeeper原生api和使用apache的curator的代码，包含了节点监控和分布式锁的实现。
  * redis包中包含了使用redis中各种数据结构的示例。Comments类里面把这些内容进行了汇总，包含了没有写出示范代码的一些方法。RedissonTest是使用Redisson框架完成分布式锁等功能。
- * mq包中的内容是java使用RabbitMq的示例，子包名对应各种模式的名称，包含直接绑定队列，direct，topics，rpc等各种模式。
+ * mq包中的内容是java使用RabbitMq的示例，子包名对应各种模式的名称，包含直接绑定队列，跟路由相关direct，topics，rpc等各种模式。
   
 ## notes-framework
 > 这个module中的代码，对应到个人笔记中 常用框架 模块儿的内容，会包含一些框架使用的Demo及其最佳实践等等（这个moudle后续可能会再度拆分）。  
