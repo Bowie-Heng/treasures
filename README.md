@@ -20,7 +20,8 @@
   * 整合Jdbc-Sharding框架进行分库分表和读写分离。
   * 整合PageHelper完成分页功能。
   * 使用Thymeleaf完成前端渲染。
+  * 使用Redis缓存数据减少数据库压力，结合Ehcache实现预热，降级等策略预防缓存雪崩，穿透等问题。
   * ...
-  > @TODO 结合Nginx，Redis，RabbitMq，Zookeeper，Dubbo，ElasticSearch，完成分布式的高可用架构。
+  > @TODO 结合Nginx，RabbitMq，Zookeeper，Dubbo，ElasticSearch，完成分布式的高可用架构。
 
 
