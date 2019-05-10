@@ -17,6 +17,7 @@
         <mysql-connector>8.0.15</mysql-connector>
         <sharding-jdbc>1.5.4</sharding-jdbc>
         <page-helper>1.2.10</page-helper>
+        <ehcache>2.10.6</ehcache>
     </properties>
 
     <dependencyManagement>
@@ -45,6 +46,12 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- 整合redis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
         <!--  模版相关  -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -65,17 +72,25 @@
             <version>${mysql-connector}</version>
         </dependency>
 
-        <!-- shardingJdbc 用以分库分表-->
+        <!-- shardingJdbc 用以分库分表 -->
         <dependency>
             <groupId>com.dangdang</groupId>
             <artifactId>sharding-jdbc-core</artifactId>
             <version>${sharding-jdbc}</version>
         </dependency>
 
+        <!-- 分页工具 -->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
             <version>${page-helper}</version>
+        </dependency>
+
+        <!-- 缓存ehcache -->
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>${ehcache}</version>
         </dependency>
 
     </dependencies>
@@ -85,6 +100,14 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
             </plugin>
         </plugins>
     </build>

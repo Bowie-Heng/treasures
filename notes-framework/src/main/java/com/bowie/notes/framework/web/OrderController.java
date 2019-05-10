@@ -6,10 +6,7 @@ import com.bowie.notes.framework.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,6 +20,11 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
+
+    /**
+     * 这个url实现了分库分表的插入
+     * @return
+     */
     @RequestMapping(value = "/insert", method = RequestMethod.GET)
     @ResponseBody
     public Result<String> insert() {
@@ -37,6 +39,10 @@ public class OrderController {
         return result;
     }
 
+    /**
+     * 这个url实现了分库分表的查询
+     * @return
+     */
     @RequestMapping(value = "/select", method = RequestMethod.GET)
     public String select(@RequestParam(value = "page", required = false) Integer page,
                          @RequestParam(value = "size", required = false) Integer pageSize, Model model) {
@@ -47,6 +53,36 @@ public class OrderController {
 
         return "order/list";
     }
+
+    /**
+     * 这里进行了一系列的措施来防止缓存雪崩和缓存穿透
+     * @return
+     */
+    @RequestMapping(value = "/select/{id}", method = RequestMethod.GET)
+    public String selectSingleOrder(@PathVariable String id, Model model) {
+
+        Order order = orderService.selectById(id);
+
+        model.addAttribute("order", order);
+
+        return "order/orderDetails";
+    }
+
+
+    /**
+     * 这里使用Spring的默认缓存机制
+     * @return
+     */
+    @RequestMapping(value = "/select/cache/{id}", method = RequestMethod.GET)
+    public String selectByCache(@PathVariable String id, Model model) {
+
+        Order order = orderService.selectByIdUsingCache(id);
+
+        model.addAttribute("order", order);
+
+        return "order/orderDetails";
+    }
+
 
 
 }

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>thymeleaf测试</title>
+</head>
+<body>
+<h2>用户详情</h2>
+<div>
+    <ul th:switch="${order!=null}">
+        <li th:case="true" th:object="${order}">
+            <span th:text="${order.orderId}"></span>-
+            <span th:text="${order.userId}"></span>-
+            <span th:text="${order.username}"></span>
+        </li>
+        <li th:case="false">
+            <span>未查到相关数据</span>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

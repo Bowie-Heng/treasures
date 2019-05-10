@@ -11,4 +11,8 @@ public interface OrderService {
     void insert();
 
     List<Order> selectByPageHelper(Integer page, Integer pageSize);
+
+    Order selectById(String orderId);
+
+    Order selectByIdUsingCache(String id);
 }
