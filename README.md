@@ -15,7 +15,12 @@
  * mq包中的内容是java使用RabbitMq的示例，子包名对应各种模式的名称，包含直接绑定队列，跟路由相关的direct，topics，rpc等各种模式。
   
 ## notes-framework
-> 这个module中的代码，对应到个人笔记中 常用框架 模块儿的内容，会包含一些框架使用的Demo及其最佳实践等等（这个moudle后续可能会再度拆分）。  
-> 框架源码的阅读和原理的剖析，陆续也会想办法迁移到GitHub中。  
-> 这块准备做成一个大的融合部分，类似于SpringBoot集成各种常用框架和常用中间件的Demo。  
+  * 使用SpringBoot构建简单的Web应用。
+  * 整合Mybatis与Mysql数据库进行简单的交互。
+  * 整合Jdbc-Sharding框架进行分库分表和读写分离。
+  * 整合PageHelper完成分页功能。
+  * 使用Thymeleaf完成前端渲染。
+  * ...
+  > @TODO 结合Nginx，Redis，RabbitMq，Zookeeper，Dubbo，ElasticSearch，完成分布式的高可用架构。
+
 
