@@ -11,7 +11,7 @@
   
 ## notes-middleware
  * zookeeper包中包含使用Zookeeper原生api和使用apache的curator的代码，包含了节点监控和分布式锁的实现。
- * redis包中包含了使用redis中各种数据结构的示例。Comments类里面把这些内容进行了汇总，包含了没有写出示范代码的一些方法。RedissonTest是使用Redisson框架完成分布式锁等功能。
+ * redis包中包含了使用redis中各种数据结构的示例。Comments类里面把这些内容进行了汇总，包含了没有写出示范代码的一些方法。RedissonTest是使用Redisson框架完成分布式锁等功能。ClusterClient是使用redis集群的客户端示例.包含了服务器集群和客户分片的两种情况.
  * mq包中的内容是java使用RabbitMq的示例，子包名对应各种模式的名称，包含直接绑定队列，跟路由相关的direct，topics，rpc等各种模式。
  * elasticsearch包中的内容是使用transportClient与ES交互的一些常用API,包含term查询,全文检索,父子文档查询,聚合查询等.
   
