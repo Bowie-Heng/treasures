@@ -22,6 +22,7 @@
   * 整合PageHelper完成分页功能。
   * 使用Thymeleaf完成前端渲染。
   * 使用Redis缓存数据减少数据库压力，结合Ehcache实现预热，降级等策略预防缓存雪崩，穿透等问题。
+  * 使用ElasticSearch做搜索,完成统一的异常处理和统一的错误页面,配置statics下为静态资源,templates下为模版。
   * ...
   > @TODO 结合Nginx，RabbitMq，Zookeeper，Dubbo，ElasticSearch，完成分布式的高可用架构。
 
