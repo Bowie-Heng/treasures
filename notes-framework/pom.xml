@@ -18,6 +18,8 @@
         <sharding-jdbc>1.5.4</sharding-jdbc>
         <page-helper>1.2.10</page-helper>
         <ehcache>2.10.6</ehcache>
+        <elasticsearch>5.5.3</elasticsearch>
+        <springboot-es>3.0.7.RELEASE</springboot-es>
     </properties>
 
     <dependencyManagement>
@@ -91,6 +93,52 @@
             <groupId>net.sf.ehcache</groupId>
             <artifactId>ehcache</artifactId>
             <version>${ehcache}</version>
+        </dependency>
+
+        <!-- springboot 整合es -->
+        <!--ES版本和Netty版本和client版本和springboot的ES版本都要对应上不然无法使用-->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-elasticsearch</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.elasticsearch</groupId>
+                    <artifactId>elasticsearch</artifactId>
+                </exclusion>
+            </exclusions>
+            <version>${springboot-es}</version>
+        </dependency>
+    <!--springboot与es对应版本的映射可以在下面的网站上找到-->
+    <!--https://docs.spring.io/spring-data/elasticsearch/docs/3.2.0.RC3/reference/html/#preface.versions-->
+
+        <dependency>
+            <groupId>org.elasticsearch</groupId>
+            <artifactId>elasticsearch</artifactId>
+            <version>${elasticsearch}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>transport</artifactId>
+            <version>${elasticsearch}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>transport-netty4-client</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.elasticsearch.plugin</groupId>
+            <artifactId>transport-netty4-client</artifactId>
+            <version>${elasticsearch}</version>
+        </dependency>
+
+        <!--减少冗余代码的工具-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
 
     </dependencies>
