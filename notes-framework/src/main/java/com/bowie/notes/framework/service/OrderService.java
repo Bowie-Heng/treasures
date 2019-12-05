@@ -15,4 +15,7 @@ public interface OrderService {
     Order selectById(String orderId);
 
     Order selectByIdUsingCache(String id);
+
+    void sendToQueue();
+
 }

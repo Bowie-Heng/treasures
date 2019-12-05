@@ -4,6 +4,7 @@ import com.bowie.notes.framework.common.Result;
 import com.bowie.notes.framework.entity.Order;
 import com.bowie.notes.framework.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +31,9 @@ public class OrderController {
     public Result<String> insert() {
 
         orderService.insert();
+
+        //这里给用户发送推送消息
+        orderService.sendToQueue();
 
         Result<String> result = new Result<String>();
 

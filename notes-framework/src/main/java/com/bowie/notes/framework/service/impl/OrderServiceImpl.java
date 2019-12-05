@@ -10,6 +10,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
@@ -35,6 +36,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private CacheUtils cacheUtils;
+
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
 
     public void insert() {
 
@@ -81,6 +85,11 @@ public class OrderServiceImpl implements OrderService {
         OrderExample orderExample = new OrderExample();
         orderExample.createCriteria().andIdEqualTo(Long.valueOf(orderId));
         return Detect.firstElement(orderMapper.selectByExample(orderExample));
+    }
+
+    @Override
+    public void sendToQueue() {
+        rabbitTemplate.convertAndSend("exchange", "routingKey", "订单已发送");
     }
 
     private String getPassWord() {
