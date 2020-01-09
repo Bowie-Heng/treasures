@@ -8,11 +8,11 @@
   * rmi包的内容，简单的实现了RMI功能。
   * serializable包的内容是java序列化功能的实际运用。
   * thread包中的内容，包含JDK的thread包中各种并发工具类，线程池，Threadlocal等的使用。
-  * features包中的内容，包含JDK1.8的一些新的特性,包含: 
-     (1).功能性接口的定义.  
-     (2).JDK提供的一些原生的功能性接口:Predicate,Supplier,Consumer,Optional等等.  
-     (3).集合类搭配新的功能性接口完成各种流操作.  
-     (4).新的处理日期类的API等等.  
+  * features包中的内容，包含JDK1.8的一些新的特性,包含:  
+    (1).功能性接口的定义.  
+    (2).JDK提供的一些原生的功能性接口:Predicate,Supplier,Consumer,Optional等等.  
+    (3).集合类搭配新的功能性接口完成各种流操作.  
+    (4).新的处理日期类的API等等.  
   
 ## notes-middleware
  * zookeeper包中包含使用Zookeeper原生api和使用apache的curator的代码，包含了节点监控和分布式锁的实现。
