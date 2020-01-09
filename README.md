@@ -1,4 +1,4 @@
-# treasures
+# Treasures
 > 积跬步，以至千里。
 ## notes-basis
   * basic包中的内容是之前使用JDK的时候，由于对源码不够熟悉，遇到过的问题。
