@@ -1,6 +1,8 @@
 package com.bowie.notes.features;
 
 import com.bowie.notes.features.entities.Person;
+import com.google.common.collect.Lists;
+import org.junit.Test;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -14,21 +16,43 @@ import java.util.stream.Collectors;
  * <p>
  * parallelStream() − 为集合创建并行流。
  **/
-public interface CollectionUtils {
-    public static void main(String[] args) {
+public class CollectionUtils {
 
+    @Test
+    public void testFilter() {
         //filter
         // 方法用于通过设置的条件过滤出元素。以下代码片段使用 filter 方法过滤出空字符串
         List<String> strings = Arrays.asList("abc", "", "bc", "efg", "abcd", "", "jkl");
         List<String> filtered = strings.stream().filter(string -> !string.isEmpty()).collect(Collectors.toList());
         //针对String,还可以使用join的方式连接出字符串
         String filterString = strings.stream().filter(string -> !string.isEmpty()).collect(Collectors.joining(""));
+        System.out.println(filterString);
+    }
 
+    @Test
+    public void testMapAndFlatMap() {
         //map
         //map 方法用于映射每个元素到对应的结果，以下代码片段使用 map 输出了元素对应的平方数
         List<Integer> numbers = Arrays.asList(3, 2, 2, 3, 7, 3, 5);
         // 获取对应的平方数
         List<Integer> squaresList = numbers.stream().map(i -> i * i).distinct().collect(Collectors.toList());
+        for (Integer number : squaresList) {
+            System.out.println(number);
+        }
+        //flatMap 不好解释
+        //我们用List中放list来测试一下
+        List<Integer> numbers1 = Arrays.asList(1, 1, 1, 1, 1, 1, 1);
+        List<Integer> numbers2 = Arrays.asList(2, 2, 2, 2, 2, 2, 2);
+        List<List<Integer>> numberList = new ArrayList<>();
+        numberList.add(numbers1);
+        numberList.add(numbers2);
+        numberList.stream().flatMap(numberList1 -> Arrays.stream(numberList1.toArray(new Integer[]{})).map(number -> number + 1)).forEach(number -> System.out.println("flatMap结果 : " + number));
+        numberList.stream().map(numberList1 -> Arrays.stream(numberList1.toArray(new Integer[]{})).map(number -> number + 1)).forEach(number -> System.out.println("map结果 : " + number));
+
+    }
+
+    @Test
+    public void testLimitSort() {
 
         //limit forEach
         //limit 方法用于获取指定数量的流。 以下代码片段使用 limit 方法打印出 10 条数据
@@ -63,10 +87,19 @@ public interface CollectionUtils {
             Person person = (Person) people;
             return Integer.valueOf(Optional.ofNullable(person.getAge()).orElse("0"));
         }).reversed());
-
-        //@TODO parallel Collectors实现集合转集合 集合转Map等操作
-
-
     }
+
+    @Test
+    public void testParallel() {
+        //parallel 并发的流操作
+        //要用线程安全的list
+        List<Integer> ids = Collections.synchronizedList(Lists.newArrayList());
+        for (int i = 0; i < 10; i++) {
+            ids.add(i);
+        }
+        ids.parallelStream().forEach(id -> System.out.println("id = " + id));
+    }
+
+    //@TODO 集合转map , reduce
 
 }
