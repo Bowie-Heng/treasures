@@ -24,9 +24,15 @@ public class CollectionUtils {
         // 方法用于通过设置的条件过滤出元素。以下代码片段使用 filter 方法过滤出空字符串
         List<String> strings = Arrays.asList("abc", "", "bc", "efg", "abcd", "", "jkl");
         List<String> filtered = strings.stream().filter(string -> !string.isEmpty()).collect(Collectors.toList());
+        filtered.forEach(System.out::println);
+
         //针对String,还可以使用join的方式连接出字符串
         String filterString = strings.stream().filter(string -> !string.isEmpty()).collect(Collectors.joining(""));
         System.out.println(filterString);
+
+        //anyMatch allMatch noneMatch max min count 方法都类似下面这种 就不一一列举了
+        System.out.println(strings.stream().anyMatch(s -> s.contains("a")));
+
     }
 
     @Test
@@ -34,11 +40,13 @@ public class CollectionUtils {
         //map
         //map 方法用于映射每个元素到对应的结果，以下代码片段使用 map 输出了元素对应的平方数
         List<Integer> numbers = Arrays.asList(3, 2, 2, 3, 7, 3, 5);
+
         // 获取对应的平方数
         List<Integer> squaresList = numbers.stream().map(i -> i * i).distinct().collect(Collectors.toList());
         for (Integer number : squaresList) {
             System.out.println(number);
         }
+
         //flatMap 不好解释
         //我们用List中放list来测试一下
         List<Integer> numbers1 = Arrays.asList(1, 1, 1, 1, 1, 1, 1);
@@ -60,6 +68,7 @@ public class CollectionUtils {
         //sorted 方法用于对流进行排序。以下代码片段使用 sorted 方法对输出的 10 个随机数进行排序
         Random random = new Random();
         random.ints().limit(10).sorted().forEach(System.out::println);
+
         //forEach方法 还可以对Map使用
         Map<String, Person> personMap = new HashMap<>();
         personMap.put("one", new Person("Bowie", "one"));
@@ -68,6 +77,7 @@ public class CollectionUtils {
             System.out.println(k);
             System.out.println(v.getFirstName());
         });
+
         //sorted方法还可以对对象进行排序
         Person person1 = new Person("Bowie", "one", "1");
         Person person2 = new Person("Bowie", "two", "2");
@@ -100,6 +110,40 @@ public class CollectionUtils {
         ids.parallelStream().forEach(id -> System.out.println("id = " + id));
     }
 
-    //@TODO 集合转map , reduce
+    @Test
+    public void testListToMap() {
+        //使用groupBy来完成List转Map
+        List<Person> personList = new ArrayList<>();
+        personList.add(new Person("Bowie", "Heng", "1"));
+        personList.add(new Person("Bowie", "Heng", "1"));
+        personList.add(new Person("Bowie", "Heng", "3"));
+        Map<String, List<Person>> collect = personList.stream().collect(Collectors.groupingBy(Person::getAge));
+        collect.forEach((k, v) -> {
+            System.out.println("key = " + k);
+            v.forEach(System.out::println);
+        });
+    }
+
+    @Test
+    public void testReduce(){
+        //reduce 操作可以实现从Stream中生成一个值，其生成的值不是随意的，
+        // 而是根据指定的计算模型。比如，之前提到count、min和max方
+        List<Integer> numbers1 = Arrays.asList(1, 2, 3, 4, 5, 6);
+        numbers1.stream().reduce((acc, item) -> {
+            System.out.println("不带 identity acc = " + acc);
+            acc += item;
+            return acc;
+        }).ifPresent(System.out::print);
+
+        //与第一个方法不同的是其会接受一个identity参数，用来指定Stream循环的初始值。如果Stream为空，就直接返回该值.
+        List<Integer> numbers2 = Arrays.asList(1,2 , 3, 4, 5, 6);
+        System.out.println(numbers2.stream().reduce(3,(acc, item) -> {
+            System.out.println("带 identity acc = " + acc);
+            acc += item;
+            return acc;
+        }));
+
+    }
+
 
 }
