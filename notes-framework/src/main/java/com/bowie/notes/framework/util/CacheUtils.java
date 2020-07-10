@@ -1,4 +1,4 @@
-package com.bowie.notes.framework.utils;
+package com.bowie.notes.framework.util;
 
 import com.bowie.notes.framework.dao.OrderMapper;
 import com.bowie.notes.framework.entity.Order;

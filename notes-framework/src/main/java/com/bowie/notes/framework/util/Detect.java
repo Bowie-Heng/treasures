@@ -1,4 +1,4 @@
-package com.bowie.notes.framework.utils;
+package com.bowie.notes.framework.util;
 
 import java.util.List;
 

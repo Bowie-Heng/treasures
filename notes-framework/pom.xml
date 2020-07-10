@@ -67,6 +67,27 @@
             <version>${mybatis-spring-boot}</version>
         </dependency>
 
+        <!-- mybatis plus-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-annotation</artifactId>
+            <version>3.1.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-extension</artifactId>
+            <version>3.1.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-generator</artifactId>
+            <scope>compile</scope>
+            <version>3.1.1</version>
+            <optional>true</optional>
+        </dependency>
+
         <!--  mysql链接  -->
         <dependency>
             <groupId>mysql</groupId>

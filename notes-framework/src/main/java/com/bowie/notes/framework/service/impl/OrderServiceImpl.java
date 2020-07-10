@@ -4,22 +4,19 @@ import com.bowie.notes.framework.dao.OrderMapper;
 import com.bowie.notes.framework.entity.Order;
 import com.bowie.notes.framework.entity.OrderExample;
 import com.bowie.notes.framework.service.OrderService;
-import com.bowie.notes.framework.utils.CacheUtils;
-import com.bowie.notes.framework.utils.Detect;
+import com.bowie.notes.framework.util.CacheUtils;
+import com.bowie.notes.framework.util.Detect;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-import sun.security.provider.MD5;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.UUID;
 
