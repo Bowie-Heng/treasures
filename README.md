@@ -30,6 +30,6 @@
   * 使用ElasticSearch做搜索,完成统一的异常处理和统一的错误页面,配置statics下为静态资源,templates下为模版。
   * 使用RabbitMq做异步推送,订单在当前系统生成,详情推送到Erp系统。
   * ...
-  > @TODO 结合Nginx，RabbitMq，Zookeeper，Dubbo，ElasticSearch，完成分布式的高可用架构。
+  > @TODO 结合Nginx，Zookeeper，Dubbo，ElasticSearch，完成分布式的高可用架构。
 
 
