@@ -29,6 +29,7 @@
   * 使用Redis缓存数据减少数据库压力，结合Ehcache实现预热，降级等策略预防缓存雪崩，穿透等问题。
   * 使用ElasticSearch做搜索,完成统一的异常处理和统一的错误页面,配置statics下为静态资源,templates下为模版。
   * 使用RabbitMq做异步推送,订单在当前系统生成,详情推送到Erp系统。
+  * 引入MybatisPlus自动生成简单的增删改查代码。
   * ...
   > @TODO 结合Nginx，Zookeeper，Dubbo，ElasticSearch，完成分布式的高可用架构。
 
