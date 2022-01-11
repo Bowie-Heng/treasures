@@ -4,6 +4,8 @@ import com.bowie.notes.features.entities.Person;
 import com.google.common.collect.Lists;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -143,6 +145,25 @@ public class CollectionUtils {
             return acc;
         }));
 
+
+        List<Person> personList = new ArrayList<>();
+        personList.add(new Person("Bowie", new BigDecimal(100)));
+        personList.add(new Person("Lily", new BigDecimal(300)));
+
+        //计算总工资
+        BigDecimal salarySum = personList.stream().map(Person::getSalary).reduce(BigDecimal.ZERO, BigDecimal::add);
+        System.out.println("总工资:" + salarySum);
+
+        //计算公司每天的工资发放，并且按日期排序
+        //Collectors.groupingBy是按哪种方式组织map
+        //第一个参数是map的key的function，第二个参数是生成map的function，第三个参数是value的function
+        TreeMap<LocalDate, BigDecimal> treeMap = personList.stream().collect(Collectors.groupingBy(Person::getDate, TreeMap::new, Collectors.reducing(BigDecimal.ZERO, Person::getSalary, BigDecimal::add)));
+        System.out.println(treeMap);
+
+        //统计一下有工资的员工有多少个
+        //Collectors.groupingBy传俩参数，默认map的生成规则是hashMap，第二个参数可以传入 Collectors的一些默认方法，这里意思是统计，类似于sql中的count关键字
+        Map<String, Long> count = personList.stream().filter(person -> person.getSalary() != null).collect(Collectors.groupingBy(Person::getFirstName, Collectors.counting()));
+        System.out.println(count);
     }
 
 
