@@ -18,7 +18,7 @@
         <sharding-jdbc>1.5.4</sharding-jdbc>
         <page-helper>1.2.10</page-helper>
         <ehcache>2.10.6</ehcache>
-        <elasticsearch>5.5.3</elasticsearch>
+        <elasticsearch>6.8.17</elasticsearch>
         <springboot-es>3.0.7.RELEASE</springboot-es>
     </properties>
 
