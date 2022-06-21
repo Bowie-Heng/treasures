@@ -14,7 +14,7 @@
     <properties>
         <java.version>1.8</java.version>
         <mybatis-spring-boot>2.0.1</mybatis-spring-boot>
-        <mysql-connector>8.0.15</mysql-connector>
+        <mysql-connector>8.0.28</mysql-connector>
         <sharding-jdbc>1.5.4</sharding-jdbc>
         <page-helper>1.2.10</page-helper>
         <ehcache>2.10.6</ehcache>
